@@ -1,6 +1,6 @@
 # Pelican theme for LPD-fr
 
-Theme based in [Pelican Clean Blog Theme]().
+Theme based in [Pelican Clean Blog Theme](https://github.com/gilsondev/pelican-clean-blog).
 
 ## Screenshot
 
