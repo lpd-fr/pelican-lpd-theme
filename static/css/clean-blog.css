@@ -139,7 +139,8 @@ hr.small {
 }
 .intro-header {
   background-color: #808080;
-  background: no-repeat center center;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-attachment: scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -150,14 +151,14 @@ hr.small {
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
-  padding: 100px 0 50px;
+  padding: 60px 0 50px;
   color: white;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
-    padding: 150px 0;
+    padding: 60px 0;
   }
 }
 .intro-header .site-heading,
