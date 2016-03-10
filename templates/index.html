@@ -29,6 +29,13 @@
 {% endblock header %}
 
 {% block content %}
+    {% for page in pages %}
+      {% if page.slug == "linux-presentation-day-france" %}
+      {{ page.content }}
+      {% endif %}
+    {% endfor %}
+    <section>
+    <h2>Actualités</h2>
     {% for article in articles_page.object_list %}
         <div class="post-preview">
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
@@ -50,6 +57,7 @@
             {% include 'comments.html' %}
         </div>
     {% endfor %}
+    </section>
 
     {% include "pagination.html" %}
 {% endblock content %}
