@@ -123,10 +123,10 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <main class="col-xs-12 {% if output_file == 'index.html' %}col-md-9 col-lg-8 {% endif %}main" id="content" role="main">
+            <main class="col-xs-12 {% if output_file in ['index.html', 'map.html'] %}col-md-9 col-lg-8 {% endif %}main" id="content" role="main">
                 {% block content %}{% endblock content %}
             </main>
-            <aside class="col-xs-12 {% if output_file == 'index.html' %}col-md-3 col-lg-4 {% endif %}" role="complementary">
+            <aside class="col-xs-12 {% if output_file in ['index.html', 'map.html'] %}col-md-3 col-lg-4 {% endif %}" role="complementary">
                 {% block sidebar %}{% endblock sidebar %}
             </aside>
         </div>
