@@ -34,14 +34,17 @@
       {{ page.content }}
       {% endif %}
     {% endfor %}
-    <section>
+{% endblock content %}
+
+
+{% block sidebar %}
     <h2>Actualités</h2>
-    {% for article in articles_page.object_list %}
-        <div class="post-preview">
+    {% for article in articles[:4] %}
+        <article class="post-preview">
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
-                <h2 class="post-title">
+                <h3 class="post-title">
                     {{ article.title }}
-                </h2>
+                </h3>
             </a>
             {% if SHOW_FULL_ARTICLE %}
                 {{ article.content }}
@@ -54,10 +57,6 @@
                 {% endfor %}
                  on {{ article.locale_date }}
             </p>
-            {% include 'comments.html' %}
-        </div>
+        </article>
     {% endfor %}
-    </section>
-
-    {% include "pagination.html" %}
-{% endblock content %}
+{% endblock sidebar %}
