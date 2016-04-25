@@ -42,7 +42,7 @@
     {% for article in articles[:4] %}
         <article class="post-preview">
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
-                <h3 class="post-title">
+                <h3>
                     {{ article.title }}
                 </h3>
             </a>
