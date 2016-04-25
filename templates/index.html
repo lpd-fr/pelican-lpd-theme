@@ -42,20 +42,19 @@
     {% for article in articles[:4] %}
         <article class="post-preview">
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
-                <h3>
-                    {{ article.title }}
-                </h3>
+                <h3>{{ article.title }}</h3>
             </a>
             {% if SHOW_FULL_ARTICLE %}
                 {{ article.content }}
             {% elif article.summary %}
                 {{ article.summary|truncate(140) }}
             {% endif %}
-            <p class="post-meta">Posted by
+            <p class="post-meta">
+              <span class="text-hide">Posted by
                 {% for author in article.authors %}
                     <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-                {% endfor %}
-                 on {{ article.locale_date }}
+                {% endfor %}&ndash;</span>
+                {{ article.locale_date }}
             </p>
         </article>
     {% endfor %}
