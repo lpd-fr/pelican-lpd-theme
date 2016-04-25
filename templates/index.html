@@ -30,7 +30,7 @@
 
 {% block content %}
     {% for page in pages %}
-      {% if page.slug == "linux-presentation-day-france" %}
+      {% if page_name == "index" and page.slug == "linux-presentation-day-france" %}
       {{ page.content }}
       {% endif %}
     {% endfor %}
