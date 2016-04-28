@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    {% if HEADER_COVER %}
+        <header class="intro-header" style="background-image: url('{{ HEADER_COVER }}')">
+    {% else %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
+    {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1 class="site-title">{{ SITENAME }}</h1>
+                        {% if SITESUBTITLE %}
+                            <hr class="small">
+                            <span class="subheading">{{ SITESUBTITLE }}</span>
+                        {% endif %}
+                        <div class="text-center highlight col-md-offset-4 col-md-4">
+                          <h2>{{ LPD_DATE }}</h2>
+                          <p>Partout dans le monde</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+
+{% block content %}
+
+    {% for article in articles %}
+        <article class="post-preview col-xs-12 col-sm-6 col-md-4">
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
+                <h2>{{ article.title }}</h2>
+            </a>
+            {% if SHOW_FULL_ARTICLE %}
+                {{ article.content }}
+            {% elif article.summary %}
+                {{ article.summary|truncate(140) }}
+            {% endif %}
+            <p class="post-meta">
+              <span class="text-hide">Posted by
+                {% for author in article.authors %}
+                    <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+                {% endfor %}&ndash;</span>
+                {{ article.locale_date }}
+            </p>
+        </article>
+    {% endfor %}
+
+{% endblock content %}
